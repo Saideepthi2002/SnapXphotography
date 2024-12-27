@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnapX Photography Contest Project1</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+      }
+      .sticky-navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: #f8f9fa;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* 992 */
+      @media screen and (min-width: 992px) {
+        .div2 {
+          background-color: #00bdfe;
+          padding: 11px;
+        }
+        .div2 .nav-link {
+          color: #ffffff !important;
+        }
+        .btn {
+          color: #00bdfe;
+          border: 1px solid #00bdfe;
+        }
+        .main-banner {
+          position: relative;
+          text-align: center;
+          color: white;
+        }
+        .main-banner img {
+          width: 100%;
+          height: auto;
+        }
+        .div_on_bgimg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          width: 100%;
+          margin-top: -50px;
+        }
+        .Enterworld h2 {
+          font-size: 64px;
+          font-family: sans-serif;
+          color: #ffffff;
+          font-weight: bold;
+        }
+        .Enterworld em {
+          color: #00bdfe;
+          font-size: 64px;
+          font-family: sans-serif;
+          font-style: normal;
+        }
+        .Enterworld p {
+          color: #fff;
+          padding: 30px 0px;
+          margin: 40px 75px 0px 75px;
+          border-top: 1px solid rgba(250, 250, 250, 0.2);
+        }
+        .buttons {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+        }
+        .big-border-button {
+          text-decoration: none;
+          font-size: 20px;
+          color: #fff;
+          background-color: transparent;
+          border: 1px solid #fff;
+          padding: 15px 30px;
+          display: inline-block;
+          border-radius: 10px;
+          font-weight: 500;
+          margin-right: 15px;
+          text-transform: capitalize;
+          letter-spacing: 0.5px;
+          transition: all 0.3s;
+        }
+        .big-border-button:hover {
+          background-color: #ffffff;
+          color: #00bdfe;
+        }
+        .icon-button a {
+          display: inline-flex;
+          align-items: center;
+          padding: 1rem 2rem;
+          gap: 0.5rem;
+          text-decoration: none;
+          color: #ffffff;
+          font-weight: 600;
+          font-size: 15px;
+        }
+        .icon-button a:hover {
+          color: #00bdfe;
+        }
+
+        .items-div {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .items-div .img-col img {
+          border: 1px solid black;
+          height: 80%;
+          width: 80%;
+          margin-top: -50px;
+          border-radius: 15px;
+          z-index: 10;
+        }
+        .categories {
+          display: flex;
+          justify-content: space-between;
+          margin: 50px;
+        }
+        .ctg-part1 h6 {
+          font-size: 15px;
+          font-family: sans-serif;
+          color: #00bdfe;
+        }
+        .ctg-part1 h4 {
+          font-size: 30px;
+          font-family: sans-serif;
+          color: #212741;
+          font-weight: 700;
+        }
+        .ctg-part1 em {
+          color: #00bdfe;
+          font-size: 30px;
+          font-family: sans-serif;
+          font-style: normal;
+        }
+        .ctg-part2btn {
+          display: flex;
+          justify-content: baseline;
+          align-items: center;
+          border-radius: 5px;
+          color: #ffffff;
+          background-color: #00bdfe;
+          border-color: #00bdfe;
+          padding: 10px;
+        }
+        .ctg-part2btn:hover {
+          border: 1px solid #00bdfe;
+          background-color: #ffffff;
+          color: #00bdfe;
+        }
+        .four_boxes {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 50px;
+          justify-content: space-around;
+        }
+        .box {
+          border: 1px solid #afafaf;
+          height: 70vh;
+          width: 25vw;
+          border-radius: 15px;
+          padding: 30px;
+          margin-left: 10px;
+        }
+        .top-content {
+          display: flex;
+          margin-bottom: 30px;
+          gap: 20px;
+        }
+        .box-icon {
+          background-color: #f7f7f7;
+          width: 75px;
+          height: 75px;
+          display: inline-block;
+          text-align: center;
+          line-height: 75px;
+          border-radius: 10px;
+          margin-right: 20px;
+        }
+        .right span {
+          color: #afafaf;
+          font-size: 15px;
+        }
+        .right h4 {
+          font-size: 20px;
+          margin-top: 5px;
+          font-weight: bold;
+          margin-bottom: 12px;
+        }
+        .right span em {
+          font-style: normal;
+          font-size: 15px;
+          font-weight: 500;
+          padding: 5px 8px;
+          border-top-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+          color: #00bdfe;
+          background-color: #fff;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.06);
+          margin-right: 10px;
+        }
+        .thumb {
+          position: relative;
+          overflow: hidden;
+        }
+        .thumb img {
+          border-radius: 5px;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          overflow: hidden;
+          align-items: center;
+        }
+        .thumb span.category {
+          font-size: 15px;
+          color: #00bdfe;
+          background-color: #fff;
+          border-radius: 10px;
+          font-weight: 500;
+          position: absolute;
+          left: 15px;
+          top: -60px;
+          padding: 8px 12px;
+          opacity: 0;
+          transition: all 0.3s;
+        }
+        .thumb span.likes {
+          font-size: 15px;
+          color: #00bdfe;
+          background-color: #fff;
+          border-radius: 10px;
+          font-weight: 500;
+          position: absolute;
+          right: 15px;
+          top: -60px;
+          padding: 8px 12px;
+          opacity: 0;
+          transition: all 0.3s;
+        }
+        .thumb:hover span.category,
+        .thumb:hover span.likes {
+          top: 15px;
+          opacity: 1;
+        }
+        .border-button {
+          margin-top: 30px;
+        }
+        .border-button a {
+          width: 100%;
+          text-align: center;
+          font-size: 15px;
+          color: #00bdfe;
+          background-color: transparent;
+          border: 1px solid #00bdfe;
+          padding: 10px 30px;
+          display: inline-block;
+          border-radius: 10px;
+          font-weight: 500;
+          text-transform: capitalize;
+          letter-spacing: 0.5px;
+          transition: all 0.3s;
+        }
+        .border-button {
+          color: #00bdfe;
+          border-radius: 10px;
+        }
+        .border-button:hover {
+          background-color: #00bdfe;
+          color: #f7f7f7;
+          border-radius: 10px;
+        }
+        .closed-contests {
+          margin-top: 200px;
+        }
+        .heading-div {
+          position: relative;
+          z-index: 2;
+          margin-top: 0px;
+          margin-bottom: 70px;
+          color: #00bdfe;
+        }
+        .heading-div h6 {
+          font-size: 15px;
+          text-transform: uppercase;
+          color: #00bdfe;
+          font-weight: 400;
+          text-align: center;
+        }
+        .heading-div h4 {
+          margin-top: 10px;
+          line-height: 36px;
+          font-size: 30px;
+          font-weight: 700;
+          text-transform: capitalize;
+          color: #212741;
+          text-align: center;
+        }
+        .heading-div h4 em {
+          color: #00bdfe;
+          font-style: normal;
+        }
+        .heading-div p {
+          margin-top: 30px;
+        }
+        .thumb2 {
+          position: relative;
+          overflow: hidden;
+        }
+        .thumb2 img {
+          border-top-right-radius: 15px;
+          border-top-left-radius: 15px;
+        }
+        .thumb2 span.winner {
+          font-size: 15px;
+          color: #00bdfe;
+          background-color: #fff;
+          border-radius: 10px;
+          font-weight: 500;
+          position: absolute;
+          left: 15px;
+          top: -60px;
+          padding: 8px 12px;
+          opacity: 0;
+          transition: all 0.3s;
+        }
+        .thumb2 span.award {
+          font-size: 15px;
+          color: #00bdfe;
+          background-color: #fff;
+          border-radius: 10px;
+          font-weight: 500;
+          position: absolute;
+          left: 230px;
+          top: -60px;
+          padding: 8px 12px;
+          opacity: 0;
+          transition: all 0.3s;
+        }
+
+        .thumb2 span.award em,
+        .thumb2 span.winner em {
+          color: #afafaf;
+          font-style: normal;
+        }
+        .thumb2:hover span.award,
+        .thumb2:hover span.winner {
+          opacity: 1;
+          top: 15px;
+        }
+        .pic-row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          justify-content: space-around;
+        }
+        .dc-row {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+        .dc-row .number h4 {
+          font-size: 18px;
+          line-height: 32px;
+        }
+        .dc-row .number h4 span {
+          font-size: 15px;
+          color: #afafaf;
+        }
+        .pic-browserbtn {
+          font-size: 15px;
+          color: #00bdfe;
+          background-color: transparent;
+          display: inline-block;
+          border-radius: 10px;
+          font-weight: 500;
+          text-transform: capitalize;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 50px;
+        }
+        .pic-browserbtn button {
+          border: 1px solid #00bdfe;
+          border-radius: 10px;
+          background-color: white;
+          padding: 15px;
+          padding-left: -15px;
+          padding-right: -15px;
+          color: #00bdfe;
+        }
+        .pic-browserbtn button:hover {
+          background-color: #00bdfe;
+          color: #f7f7f7;
+        }
+        .pricing-plans {
+          margin-top: 100px;
+        }
+        .pp-heading h6 {
+          font-size: 15px;
+          text-transform: uppercase;
+          color: #00bdfe;
+          font-weight: 400;
+          text-align: center;
+        }
+        .pp-heading h4 {
+          margin-top: 10px;
+          line-height: 36px;
+          font-size: 30px;
+          font-weight: 700;
+          text-transform: capitalize;
+          color: #212741;
+          text-align: center;
+        }
+        .pp-heading h4 em {
+          color: #00bdfe;
+          font-style: normal;
+        }
+        .col-lg-4 {
+          flex: 0 0 auto;
+          width: 33.33333333%;
+        }
+        .pricing-item {
+          text-align: center;
+          padding: 30px;
+          border: 1px solid #e0e0e0;
+          border-radius: 15px;
+          transition: all 0.5s;
+        }
+        .pricing-item:hover {
+          border: 1px solid transparent;
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.06);
+        }
+        .pricing-item:hover h4 {
+          color: #00bdfe;
+        }
+        .pricing-item img {
+          max-width: 240px;
+        }
+        .pricing-item h4 {
+          font-size: 20px;
+          font-weight: 700;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          padding-bottom: 30px;
+          border-bottom: 1px solid #d4d4d4;
+          transition: all 0.5s;
+        }
+        .pricing-item ul li {
+          font-size: 15px;
+          color: #00bdfe;
+          margin-bottom: 10px;
+        }
+        ul li {
+          list-style: none;
+        }
+
+        span.price {
+          font-size: 30px;
+          color: #00bdfe;
+          font-weight: 700;
+          display: inline-block;
+          margin-top: 30px;
+        }
+        .pricing-3-boxes {
+          display: flex;
+          gap: 20px;
+          margin: 70px;
+          margin-right: 110px;
+        }
+        footer {
+          background-color: #00bdfe;
+          text-align: center;
+          padding: 25px 0px;
+          margin-top: 120px;
+        }
+        footer p {
+          color: #fff;
+          font-weight: 300;
+        }
+        footer p a {
+          color: #fff;
+          font-weight: 500;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light sticky-navbar">
+      <div class="container bg-light">
+        <div class="div1">
+          <img src="../assests/images/logo.png" alt="Logo" />
+        </div>
+        <div class="div2">
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                style="color: black"
+                >HOME</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-expanded="false"
+                >PHOTOS&VIDEOS</a
+              >
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">CONTESTS</a></li>
+                <li><a class="dropdown-item" href="#">SINGLE CONTEST</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CATEGORIES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1">USERS</a>
+            </li>
+          </ul>
+        </div>
+        <form class="d-flex">
+          <button class="btn btn-outline-success" type="submit">
+            <i class="fa fa-user"></i> Sign In/Up
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="main-banner">
+      <img
+        src="../assests/images/backgroundimg.jpg"
+        class="img-fluid"
+        alt="Responsive image"
+      />
+      <div class="div_on_bgimg">
+        <div class="row">
+          <div class="col1">
+            <div class="Enterworld">
+              <h2>
+                Enter a world of <em>Photos</em> & Amazing <em>Awards</em>
+              </h2>
+
+              <p>
+                SnapX Photography is a professional website template with 5
+                different HTML pages for maximum customizations. <br />
+                It is free for commercial usage. This Bootstrap v5.1.3 CSS
+                layout is provided by TemplateMo Free CSS Templates.
+              </p>
+              <div class="buttons">
+                <div class="big-border-button">Explore SnapX Contest</div>
+                <div class="icon-button">
+                  <a href="#">
+                    <i class="fa fa-play"></i>
+                    Watch Our Videos Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="popular-categories">
+      <div class="categories">
+        <div class="ctg-part1">
+          <h6>OUR CATEGORIES</h6>
+          <h4>Check Out <em>Popular</em>Contest <em>Categories</em></h4>
+        </div>
+        <div class="ctg-part2">
+          <button class="ctg-part2btn">Discover All Categories</button>
+        </div>
+      </div>
+      <!-- 4boxes -->
+      <div class="four_boxes">
+        <!-- box1 -->
+        <div class="box card" style="width: 18rem">
+          <div class="top-content">
+            <div class="box-icon">
+              <img src="../assests/images/div4pica.png" />
+            </div>
+            <div class="right">
+              <h4>Nature Pic Contest</h4>
+              <span>
+                <em>126</em>
+                Available Contests
+              </span>
+            </div>
+          </div>
+          <!--  -->
+          <div class="thumb">
+            <img src="../assests/images/naturepic1.jpg" />
+            <span class="category">Top Contest</span>
+            <span class="likes">
+              <i class="fa fa-heart"></i>
+              256
+            </span>
+          </div>
+
+          <div class="border-button">
+            <a>Browser Nature Pic Contests</a>
+          </div>
+        </div>
+        <!-- box2 -->
+        <div class="box card" style="width: 18rem">
+          <div class="top-content">
+            <div class="box-icon">
+              <img src="../assests/images/div4pic2.png" />
+            </div>
+            <div class="right">
+              <h4>Random Pic Contest</h4>
+              <span>
+                <em>116</em>
+                Available Contests
+              </span>
+            </div>
+          </div>
+          <!--  -->
+          <div class="thumb">
+            <img src="../assests/images/randompic2.png" />
+            <span class="category">Top Contest</span>
+            <span class="likes">
+              <i class="fa fa-heart"></i>
+              256
+            </span>
+          </div>
+
+          <div class="border-button">
+            <a>Browser Random Pic Contests</a>
+          </div>
+        </div>
+        <!-- box3 -->
+        <div class="box card" style="width: 18rem">
+          <div class="top-content">
+            <div class="box-icon">
+              <img src="../assests/images/div4pic3.png" />
+            </div>
+            <div class="right">
+              <h4>Portrait Pic Contest</h4>
+              <span>
+                <em>164</em>
+                Available Contests
+              </span>
+            </div>
+          </div>
+          <!--  -->
+          <div class="thumb">
+            <img src="../assests/images/portraitpic3.png" />
+            <span class="category">Top Contest</span>
+            <span class="likes">
+              <i class="fa fa-heart"></i>
+              256
+            </span>
+          </div>
+
+          <div class="border-button">
+            <a>Browser Portrait Pic Contests</a>
+          </div>
+        </div>
+        <!-- box4 -->
+        <div class="box card" style="width: 18rem">
+          <div class="top-content">
+            <div class="box-icon">
+              <img src="../assests/images/div4pic4.png" />
+            </div>
+            <div class="right">
+              <h4>Space Pic Contest</h4>
+              <span>
+                <em>135</em>
+                Available Contests
+              </span>
+            </div>
+          </div>
+          <!--  -->
+          <div class="thumb">
+            <img src="../assests/images/spacepic4.png" />
+            <span class="category">Top Contest</span>
+            <span class="likes">
+              <i class="fa fa-heart"></i>
+              256
+            </span>
+          </div>
+
+          <div class="border-button">
+            <a>Browser Space Pic Contests</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--part3 from last-->
+    <section class="closed-contests">
+      <div
+        class="c-c-divcontainer"
+        style="background-color: rgba(245, 247, 242, 0.272)"
+      >
+        <div class="col-lg-l2">
+          <div class="heading-div">
+            <h6>CLOSED PHOTOGRAPHY CONTESTS</h6>
+            <h4><em>Previous Contests</em> With Handpicked <em>Winners</em></h4>
+          </div>
+        </div>
+        <!-- pi -->
+        <div class="pictures">
+          <div class="pic-row" style="position: relative; z-index: 5">
+            <div class="thumb2">
+              <img src="../assests/images/watergirl.jpg" />
+              <span class="winner spanflex">
+                <em>Winner:</em>
+                Anthony Soft
+              </span>
+              <span class="award spanflex">
+                <em>Award:</em>
+                $1600
+              </span>
+              <!-- participants -->
+              <div class="down-content">
+                <div class="dc-row">
+                  <div class="number num1">
+                    <h4>
+                      88 Participants
+                      <br />
+                      <span>Number of Artists</span>
+                    </h4>
+                  </div>
+                  <div class="number num2">
+                    <h4 class="h4-pics">
+                      320 Pictures
+                      <br />
+                      <span>Submitted Pics</span>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 2 -->
+            <div class="thumb2">
+              <img src="../assests/images/watergirl2.jpg" />
+              <span class="winner spanflex">
+                <em>Winner:</em>
+                Anthony Soft
+              </span>
+              <span class="award spanflex">
+                <em>Award:</em>
+                $4200
+              </span>
+              <!-- participants -->
+              <div class="down-content">
+                <div class="dc-row">
+                  <div class="number num1">
+                    <h4>
+                      96 Participants
+                      <br />
+                      <span>Number of Artists</span>
+                    </h4>
+                  </div>
+                  <div class="number num2">
+                    <h4 class="h4-pics">
+                      410 Pictures
+                      <br />
+                      <span>Submitted Pics</span>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 3 -->
+            <div class="thumb2">
+              <img src="../assests/images/watergirl3.jpg" />
+              <span class="winner spanflex">
+                <em>Winner:</em>
+                Anthony Soft
+              </span>
+              <span class="award spanflex">
+                <em>Award:</em>
+                $3200
+              </span>
+              <!-- participants -->
+              <div class="down-content">
+                <div class="dc-row">
+                  <div class="number num1">
+                    <h4>
+                      74 Participants
+                      <br />
+                      <span>Number of Artists</span>
+                    </h4>
+                  </div>
+                  <div class="number num2">
+                    <h4 class="h4-pics">
+                      284 Pictures
+                      <br />
+                      <span>Submitted Pics</span>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pic-browserbtn">
+          <button style="font-weight: 500">Browser Open Contest</button>
+        </div>
+      </div>
+    </section>
+    <section class="pricing-plans">
+      <div class="pp-container">
+        <div class="pp-row">
+          <div class="col-lg-12">
+            <div class="pp-heading">
+              <h6>Our Pricing</h6>
+              <h4>
+                Photography <em>Contest Plans</em> And <em>Price Awards</em>
+              </h4>
+            </div>
+          </div>
+          <!-- col2 -->
+          <div class="pricing-3-boxes">
+            <div class="col-lg-4">
+              <div class="pricing-item">
+                <img src="../assests/images/pricing-01.jpg" />
+                <h4>Basic Plan</h4>
+                <ul class="first-plan">
+                  <li>Lorem Ipsum Dolores Sonte</li>
+                  <li>Songe Lorem Ipsum Dol</li>
+                  <li>Matrios Venga Heptuss</li>
+                  <li style="text-decoration: line-through; color: #afafaf">
+                    Denim Sriracha Kogi
+                  </li>
+                  <li style="text-decoration: line-through; color: #afafaf">
+                    Digital Photography Awards
+                  </li>
+                </ul>
+                <span class="price">$25 USD</span>
+                <div class="border-button">
+                  <a>Choose This Plan</a>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="col-lg-4">
+              <div class="pricing-item">
+                <img src="../assests/images/pricing-01.jpg" />
+                <h4>Basic Plan</h4>
+                <ul class="first-plan">
+                  <li>Lorem Ipsum Dolores Sonte</li>
+                  <li>Songe Lorem Ipsum Dol</li>
+                  <li>Matrios Venga Heptuss</li>
+                  <li>Denim Sriracha Kogi</li>
+                  <li style="text-decoration: line-through; color: #afafaf">
+                    Digital Photography Awards
+                  </li>
+                </ul>
+                <span class="price">$45 USD</span>
+                <div class="border-button">
+                  <a>Choose This Plan</a>
+                </div>
+              </div>
+            </div>
+            <!-- c -->
+            <div class="col-lg-4">
+              <div class="pricing-item">
+                <img src="../assests/images/pricing-01.jpg" />
+                <h4>Basic Plan</h4>
+                <ul class="first-plan">
+                  <li>Lorem Ipsum Dolores Sonte</li>
+                  <li>Songe Lorem Ipsum Dol</li>
+                  <li>Matrios Venga Heptuss</li>
+                  <li>Denim Sriracha Kogi</li>
+                  <li>Digital Photography Awards</li>
+                </ul>
+                <span class="price">$85 USD</span>
+                <div class="border-button">
+                  <a>Choose This Plan</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-container">
+        <div class="ftr-row">
+          <div class="ftr-row-content">
+            <p>
+              Copyright &copy 2048
+              <a>SnapX</a>
+              Photo Contest Co., Ltd. All rights reserved. Design:
+              <a>TemplateMO</a>
+              Distribution:
+              <a>ThemeWagon</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
